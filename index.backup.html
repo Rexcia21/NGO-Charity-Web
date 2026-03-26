@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope Foundation - Empowering Communities Worldwide</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== NAVIGATION BAR ========== -->
+    <header id="navbar">
+        <div class="logo">
+            <i class="fas fa-hands-helping"></i>
+            <span>Hope Foundation</span>
+        </div>
+        <nav>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#causes" class="nav-link">Causes</a>
+            <a href="#impact" class="nav-link">Impact</a>
+            <a href="#donate" class="nav-link">Donate</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!-- FEATURE 3: Dark Mode Toggle -->
+        <button class="dark-mode-toggle" id="darkModeToggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <!-- FEATURE 2: Live Donation Ticker (moved below Hero into Recent Donations section) -->
+
+    <!-- ========== HOME / HERO SECTION ========== -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Together We Transform Lives</h1>
+            <p class="hero-subtitle">Empowering communities through education, healthcare, and sustainable development</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-hero" onclick="openDonateModal()">
+                    <i class="fas fa-heart"></i> Donate Now
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat-item">
+                    <h3>15,420+</h3>
+                    <p>Lives Changed</p>
+                </div>
+                <div class="hero-stat-item">
+                    <h3>₹87.5L+</h3>
+                    <p>Funds Raised</p>
+                </div>
+                <div class="hero-stat-item">
+                    <h3>247+</h3>
+                    <p>Projects</p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ========== RECENT DONATIONS (moved) ========== -->
+    <section id="recent-donations" class="section recent-donations-section">
+        <div class="container">
+            <div class="recent-donations-card">
+                <div class="recent-header">
+                    <span class="section-tag" aria-hidden="true">Donations</span>
+                    <h2 id="recentDonationsHeading">Recent Donations</h2>
+                    <p class="section-description">Latest contributions from our generous supporters</p>
+                </div>
+
+                <div class="donation-ticker" id="donationTicker" aria-live="polite" aria-atomic="true">
+                    <div class="ticker-content" id="tickerContent">
+                        <!-- JavaScript will populate this -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT US SECTION ========== -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Who We Are</span>
+                <h2>About Hope Foundation</h2>
+                <p class="section-description">Building a better tomorrow through compassion and action</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>Hope Foundation is a non-profit organization dedicated to creating sustainable change in underserved communities. Since our inception, we've been committed to breaking the cycle of poverty through education, healthcare access, and economic empowerment.</p>
+                    
+                    <h3>What We Do</h3>
+                    <ul class="mission-list">
+                        <li><i class="fas fa-check-circle"></i> Provide quality education to underprivileged children</li>
+                        <li><i class="fas fa-check-circle"></i> Deliver essential healthcare services to remote areas</li>
+                        <li><i class="fas fa-check-circle"></i> Support sustainable livelihood programs</li>
+                        <li><i class="fas fa-check-circle"></i> Empower women through skill development</li>
+                    </ul>
+                    
+                    <div class="about-stats-mini">
+                        <div class="stat-mini">
+                            <h4>15+</h4>
+                            <p>Years of Service</p>
+                        </div>
+                        <div class="stat-mini">
+                            <h4>50+</h4>
+                            <p>Communities</p>
+                        </div>
+                        <div class="stat-mini">
+                            <h4>200+</h4>
+                            <p>Volunteers</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600" alt="Our Team">
+                    <div class="image-overlay">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CAUSES SECTION ========== -->
+    <section id="causes" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How We Help</span>
+                <h2>Our Causes</h2>
+                <p class="section-description">Every donation creates ripples of positive change</p>
+            </div>
+            
+            <div class="causes-grid">
+                <!-- Cause Card 1 -->
+                <div class="cause-card">
+                    <div class="cause-image">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400" alt="Education">
+                        <div class="cause-icon"><i class="fas fa-graduation-cap"></i></div>
+                    </div>
+                    <div class="cause-content">
+                        <h3>Education for All</h3>
+                        <p>Providing scholarships, school supplies, and educational infrastructure to children in need.</p>
+                        <div class="cause-progress">
+                            <div class="progress-info">
+                                <span>Raised: ₹45,000</span>
+                                <span>Goal: ₹100,000</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-cause" onclick="openDonateModal('Education')">Support This Cause</button>
+                    </div>
+                </div>
+                
+                <!-- Cause Card 2 -->
+                <div class="cause-card">
+                    <div class="cause-image">
+                        <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400" alt="Healthcare">
+                        <div class="cause-icon"><i class="fas fa-heartbeat"></i></div>
+                    </div>
+                    <div class="cause-content">
+                        <h3>Healthcare Access</h3>
+                        <p>Organizing free medical camps, providing medicines, and emergency healthcare support.</p>
+                        <div class="cause-progress">
+                            <div class="progress-info">
+                                <span>Raised: ₹68,000</span>
+                                <span>Goal: ₹80,000</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-cause" onclick="openDonateModal('Healthcare')">Support This Cause</button>
+                    </div>
+                </div>
+                
+                <!-- Cause Card 3 -->
+                <div class="cause-card">
+                    <div class="cause-image">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400" alt="Food Support">
+                        <div class="cause-icon"><i class="fas fa-utensils"></i></div>
+                    </div>
+                    <div class="cause-content">
+                        <h3>Food & Nutrition</h3>
+                        <p>Ensuring daily meals and nutritional support for homeless and underprivileged families.</p>
+                        <div class="cause-progress">
+                            <div class="progress-info">
+                                <span>Raised: ₹92,000</span>
+                                <span>Goal: ₹120,000</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 77%"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-cause" onclick="openDonateModal('Food Support')">Support This Cause</button>
+                    </div>
+                </div>
+                
+                <!-- Cause Card 4 -->
+                <div class="cause-card">
+                    <div class="cause-image">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400" alt="Women Empowerment">
+                        <div class="cause-icon"><i class="fas fa-female"></i></div>
+                    </div>
+                    <div class="cause-content">
+                        <h3>Women Empowerment</h3>
+                        <p>Skill training, entrepreneurship programs, and financial literacy for women.</p>
+                        <div class="cause-progress">
+                            <div class="progress-info">
+                                <span>Raised: ₹35,000</span>
+                                <span>Goal: ₹60,000</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" style="width: 58%"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-cause" onclick="openDonateModal('Women Empowerment')">Support This Cause</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== IMPACT SECTION ========== -->
+    <section id="impact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Achievements</span>
+                <h2>The Impact We've Made</h2>
+                <p class="section-description">Real numbers, real lives, real change</p>
+            </div>
+            
+            <!-- Impact Statistics -->
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="stat-number" data-target="15420">0</h3>
+                    <p>Lives Transformed</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <h3 class="stat-number" data-target="8750000">0</h3>
+                    <p>Funds Raised (₹)</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3 class="stat-number" data-target="247">0</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3 class="stat-number" data-target="3450">0</h3>
+                    <p>Active Volunteers</p>
+                </div>
+            </div>
+            
+            <!-- Overall Progress -->
+            <div class="overall-progress">
+                <h3>Current Campaign Progress</h3>
+                <div class="progress-info-large">
+                    <div>
+                        <span class="amount-raised">₹<span id="totalRaised">240000</span></span>
+                        <small>Raised</small>
+                    </div>
+                    <div>
+                        <span class="amount-goal">₹360,000</span>
+                        <small>Goal</small>
+                    </div>
+                </div>
+                <div class="progress-bar-large">
+                    <div class="progress-fill" id="mainProgress"></div>
+                </div>
+                <p class="progress-percentage" id="progressPercentage">0%</p>
+            </div>
+
+            <!-- Success Stories -->
+            <div class="success-stories">
+                <h3 class="stories-title">Success Stories</h3>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400" alt="Story">
+                        <div class="story-content">
+                            <h4>Rahul's Journey to Engineering</h4>
+                            <p>"Thanks to Hope Foundation's scholarship, I became the first engineer in my village. Now I'm giving back to my community."</p>
+                            <span class="story-author">- Rahul Kumar</span>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400" alt="Story">
+                        <div class="story-content">
+                            <h4>Priya's Healthcare Miracle</h4>
+                            <p>"The free medical camp saved my daughter's life. I'm forever grateful to this organization."</p>
+                            <span class="story-author">- Priya Sharma</span>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Story">
+                        <div class="story-content">
+                            <h4>From Homeless to Hopeful</h4>
+                            <p>"After losing everything, Hope Foundation gave me food, shelter, and most importantly - hope for tomorrow."</p>
+                            <span class="story-author">- Amit Verma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Donations -->
+            <div class="recent-donations">
+                <h3>Recent Donations</h3>
+                <div class="donations-list" id="donationsList">
+                    <!-- JavaScript will populate this -->
+                </div>
+            </div>
+
+            <!-- FEATURE 1: Donor Leaderboard -->
+            <div class="donor-leaderboard">
+                <h3 class="leaderboard-title">
+                    <i class="fas fa-trophy"></i> Top Donors Hall of Fame
+                </h3>
+                <p class="leaderboard-subtitle">Recognizing our generous supporters</p>
+                <div class="leaderboard-list" id="leaderboardList">
+                    <!-- JavaScript will populate this -->
+                </div>
+            </div>
+
+            <!-- FEATURE 9: Impact Growth Chart -->
+            <div class="impact-chart-section">
+                <h3 class="chart-title">
+                    <i class="fas fa-chart-line"></i> Monthly Donation Growth
+                </h3>
+                <p class="chart-subtitle">Track our fundraising journey</p>
+                <canvas id="impactChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS SECTION ========== -->
+    <section class="testimonials-section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What People Say</span>
+                <h2>Testimonials</h2>
+                <p class="section-description">Voices of change from our community</p>
+            </div>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonials-wrapper" id="testimonialsWrapper">
+                    <!-- Testimonial slides will be added by JavaScript -->
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="changeTestimonial(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next" onclick="changeTestimonial(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== VOLUNTEER SECTION ========== -->
+    <section class="volunteer-section section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Join Our Team</span>
+                <h2>Become a Volunteer</h2>
+                <p class="section-description">Your time and skills can change lives</p>
+            </div>
+            
+            <div class="volunteer-content">
+                <div class="volunteer-info">
+                    <h3>Why Volunteer With Us?</h3>
+                    <ul class="volunteer-benefits">
+                        <li><i class="fas fa-star"></i> Make a tangible difference in communities</li>
+                        <li><i class="fas fa-star"></i> Gain valuable experience and skills</li>
+                        <li><i class="fas fa-star"></i> Connect with like-minded changemakers</li>
+                        <li><i class="fas fa-star"></i> Flexible scheduling options</li>
+                        <li><i class="fas fa-star"></i> Recognition and appreciation</li>
+                    </ul>
+                    <div class="volunteer-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Volunteering gave me purpose and showed me the power of collective action."</p>
+                        <span>- Sarah, Volunteer since 2022</span>
+                    </div>
+                </div>
+                
+                <form class="volunteer-form" id="volunteerForm">
+                    <h3>Volunteer Registration</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="volName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" id="volEmail" placeholder="your.email@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" id="volPhone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Area of Interest *</label>
+                            <select id="volSkills" required>
+                                <option value="">Select area</option>
+                                <option value="Education">Education & Teaching</option>
+                                <option value="Healthcare">Healthcare Support</option>
+                                <option value="Food Distribution">Food Distribution</option>
+                                <option value="Fundraising">Fundraising & Events</option>
+                                <option value="Social Media">Social Media & Marketing</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Availability *</label>
+                        <select id="volAvailability" required>
+                            <option value="">Select your availability</option>
+                            <option value="Weekdays">Weekdays</option>
+                            <option value="Weekends">Weekends</option>
+                            <option value="Both">Both Weekdays & Weekends</option>
+                            <option value="Flexible">Flexible</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Why do you want to volunteer? *</label>
+                        <textarea id="volMessage" rows="4" placeholder="Share your motivation..." required></textarea>
+                    </div>
+
+                    <!-- FEATURE 6: Skill-based Suggestion Box -->
+                    <div class="skill-suggestion" id="skillSuggestion" style="display: none;">
+                        <i class="fas fa-lightbulb"></i>
+                        <p id="suggestionText"></p>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Submit Application</button>
+                </form>
+
+                <!-- FEATURE 6: Volunteer Counter -->
+                <div class="volunteer-counter">
+                    <i class="fas fa-users"></i>
+                    <span id="totalVolunteers">0</span> volunteers registered this month!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DONATE SECTION ========== -->
+    <section id="donate" class="donate-section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Make an Impact</span>
+                <h2>Your Donation Matters</h2>
+                <p class="section-description">Every contribution, big or small, creates lasting change</p>
+            </div>
+            
+            <div class="donation-showcase">
+                <div class="donation-impact-centered">
+                    <div class="impact-item">
+                        <div class="impact-icon"><i class="fas fa-book"></i></div>
+                        <div class="impact-amount">₹500</div>
+                        <p>Provides school supplies for 5 children</p>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon"><i class="fas fa-stethoscope"></i></div>
+                        <div class="impact-amount">₹2000</div>
+                        <p>Sponsors a medical check-up camp</p>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon"><i class="fas fa-utensils"></i></div>
+                        <div class="impact-amount">₹5000</div>
+                        <p>Feeds a family for an entire month</p>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="impact-amount">₹10000</div>
+                        <p>Provides a scholarship for one year</p>
+                    </div>
+                </div>
+                
+                <div class="donate-cta-centered">
+                    <button class="btn btn-primary btn-large btn-pulse" onclick="openDonateModal()">
+                        <i class="fas fa-heart"></i> Donate Now
+                    </button>
+                    <p class="tax-benefit"><i class="fas fa-shield-alt"></i> All donations are eligible for 80G tax deduction</p>
+                    <div class="trust-badges">
+                        <span class="trust-badge"><i class="fas fa-lock"></i> Secure Payment</span>
+                        <span class="trust-badge"><i class="fas fa-certificate"></i> Verified NGO</span>
+                        <span class="trust-badge"><i class="fas fa-chart-line"></i> 100% Transparent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2>Contact Us</h2>
+                <p class="section-description">We'd love to hear from you</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Our Office</h4>
+                            <p>123 Hope Street, Mumbai<br>Maharashtra, India - 400001</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210<br>+91 98765 43211</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@hopefoundation.org<br>support@hopefoundation.org</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <h3>Send us a Message</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="text" id="contactName" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="contactEmail" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" id="contactSubject" placeholder="Message subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea id="contactMessage" rows="5" placeholder="Your message..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NEWSLETTER SECTION ========== -->
+    <section class="newsletter-section section-alt">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Stay updated with our latest initiatives, success stories, and events</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-hands-helping"></i>
+                        <span>Hope Foundation</span>
+                    </div>
+                    <p>Empowering communities and transforming lives through compassion, education, and sustainable development.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#causes">Our Causes</a></li>
+                        <li><a href="#impact">Our Impact</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="#volunteer">Become a Volunteer</a></li>
+                        <li><a href="#donate">Make a Donation</a></li>
+                        <li><a href="#contact">Partner With Us</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Annual Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hope Foundation. All Rights Reserved. | Registered NGO No: 12345/2010</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== DONATION MODAL ========== -->
+    <div class="modal" id="donateModal">
+        <div class="modal-overlay" onclick="closeDonateModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDonateModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-heart modal-icon"></i>
+                <h3>Make a Donation</h3>
+                <p>Your generosity changes lives</p>
+            </div>
+            
+            <form id="donationForm">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="donorName" name="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="donorEmail" name="email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Donation Amount (₹) *</label>
+                    <input type="number" id="donationAmount" name="amount" placeholder="Enter amount" min="100" required>
+                    <div class="quick-amounts">
+                        <button type="button" class="amount-btn" onclick="setAmount(500)">₹500</button>
+                        <button type="button" class="amount-btn" onclick="setAmount(1000)">₹1000</button>
+                        <button type="button" class="amount-btn" onclick="setAmount(5000)">₹5000</button>
+                        <button type="button" class="amount-btn" onclick="setAmount(10000)">₹10000</button>
+                    </div>
+                </div>
+
+                <!-- FEATURE 8: Monthly Recurring Donation -->
+                <div class="form-group recurring-donation">
+                    <label class="recurring-label">
+                        <input type="checkbox" id="recurringDonation">
+                        <span class="recurring-text">
+                            <i class="fas fa-sync-alt"></i> Make this a monthly recurring donation
+                        </span>
+                    </label>
+                    <p class="recurring-info" id="recurringInfo" style="display: none;">
+                        You will contribute ₹<span id="recurringAmount">0</span> every month. Cancel anytime.
+                    </p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Cause (Optional)</label>
+                    <select id="donationCause" name="cause">
+                        <option value="General">General Fund</option>
+                        <option value="Education">Education</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Food Support">Food Support</option>
+                        <option value="Women Empowerment">Women Empowerment</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Payment Method *</label>
+                    <select id="paymentMethod" name="payment" required>
+                        <option value="">Select payment method</option>
+                        <option value="UPI">UPI / QR Code</option>
+                        <option value="Card">Credit / Debit Card</option>
+                        <option value="Net Banking">Net Banking</option>
+                        <option value="Wallet">Digital Wallet</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-heart"></i> Complete Donation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========== SUCCESS MESSAGE ========== -->
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <p id="successText"></p>
+    </div>
+
+    <!-- FEATURE 7: Donation Receipt Modal -->
+    <div class="modal" id="receiptModal">
+        <div class="modal-overlay" onclick="closeReceiptModal()"></div>
+        <div class="modal-content receipt-modal-content">
+            <button class="modal-close" onclick="closeReceiptModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="receipt-header">
+                <i class="fas fa-file-invoice"></i>
+                <h3>Donation Receipt</h3>
+                <p>Thank you for your generous contribution!</p>
+            </div>
+            <div class="receipt-body">
+                <div class="receipt-row">
+                    <span class="receipt-label">Transaction ID:</span>
+                    <span class="receipt-value" id="receiptTxn">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Donor Name:</span>
+                    <span class="receipt-value" id="receiptName">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Email:</span>
+                   <span class="receipt-value" id="receiptEmail">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Amount:</span>
+                    <span class="receipt-value receipt-amount" id="receiptAmount">₹0</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Cause:</span>
+                    <span class="receipt-value" id="receiptCause">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Payment Method:</span>
+                    <span class="receipt-value" id="receiptPayment">-</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Date & Time:</span>
+                    <span class="receipt-value" id="receiptDateTime">-</span>
+                </div>
+                <div class="receipt-row recurring-status" id="receiptRecurring" style="display: none;">
+                    <span class="receipt-label">Recurring:</span>
+                    <span class="receipt-value"><i class="fas fa-sync-alt"></i> Monthly</span>
+                </div>
+            </div>
+            <div class="receipt-footer">
+                <p class="tax-note"><i class="fas fa-shield-alt"></i> This donation is eligible for 80G tax deduction</p>
+                <button class="btn btn-primary btn-download" onclick="downloadReceipt()">
+                    <i class="fas fa-download"></i> Download Receipt
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

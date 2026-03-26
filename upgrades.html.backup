@@ -1,0 +1,177 @@
+<!-- =====================================================
+   NGO WEBSITE UPGRADES - FINAL YEAR PROJECT FEATURES
+   Add these sections to your existing index.html
+   ===================================================== -->
+
+<!-- ========================================
+   FEATURE 1: DARK MODE TOGGLE (in navbar)
+   Insert after mobile-menu-toggle button
+   ======================================== -->
+<button class="dark-mode-toggle" id="darkModeToggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+    <i class="fas fa-moon"></i>
+</button>
+
+
+<!-- ========================================
+   FEATURE 2: LIVE DONATION TICKER
+   Insert right after <header> closing tag
+   ======================================== -->
+<div class="donation-ticker" id="donationTicker">
+    <div class="ticker-content" id="tickerContent">
+        <!-- JavaScript will populate this -->
+    </div>
+</div>
+
+
+<!-- ========================================
+   FEATURE 1: DONOR LEADERBOARD
+   Insert after "Recent Donations" section
+   ======================================== -->
+<div class="donor-leaderboard">
+    <h3 class="leaderboard-title">
+        <i class="fas fa-trophy"></i> Top Donors Hall of Fame
+    </h3>
+    <p class="leaderboard-subtitle">Recognizing our generous supporters</p>
+    <div class="leaderboard-list" id="leaderboardList">
+        <!-- JavaScript will populate this -->
+    </div>
+</div>
+
+
+<!-- ========================================
+   FEATURE 9: IMPACT GROWTH CHART
+   Insert after Donor Leaderboard
+   ======================================== -->
+<div class="impact-chart-section">
+    <h3 class="chart-title">
+        <i class="fas fa-chart-line"></i> Monthly Donation Growth
+    </h3>
+    <p class="chart-subtitle">Track our fundraising journey</p>
+    <canvas id="impactChart"></canvas>
+</div>
+
+
+<!-- ========================================
+   FEATURE 6: VOLUNTEER FORM ENHANCEMENTS
+   Insert after the existing Area of Interest field
+   ======================================== -->
+
+<!-- Additional Skills Multi-select -->
+<div class="form-row">
+    <div class="form-group">
+        <label>Additional Skills (Multi-select)</label>
+        <select id="volAdditionalSkills" multiple size="4">
+            <option value="Teaching">Teaching/Tutoring</option>
+            <option value="Medical">Medical/Healthcare</option>
+            <option value="Tech">Technology/IT</option>
+            <option value="Design">Design/Creativity</option>
+            <option value="Finance">Finance/Accounting</option>
+            <option value="Communication">Communication</option>
+        </select>
+        <small>Hold Ctrl/Cmd to select multiple</small>
+    </div>
+    <div class="form-group">
+        <label>Experience Level *</label>
+        <select id="volExperience" required>
+            <option value="">Select level</option>
+            <option value="Beginner">Beginner (No prior experience)</option>
+            <option value="Intermediate">Intermediate (1-2 years)</option>
+            <option value="Advanced">Advanced (3+ years)</option>
+        </select>
+    </div>
+</div>
+
+<!-- Skill-based Suggestion Box (Insert before submit button) -->
+<div class="skill-suggestion" id="skillSuggestion" style="display: none;">
+    <i class="fas fa-lightbulb"></i>
+    <p id="suggestionText"></p>
+</div>
+
+<!-- Volunteer Counter (Insert after volunteer form closing tag) -->
+<div class="volunteer-counter">
+    <i class="fas fa-users"></i>
+    <span id="totalVolunteers">0</span> volunteers registered this month!
+</div>
+
+
+<!-- ========================================
+   FEATURE 8: MONTHLY RECURRING DONATION
+   Insert after Donation Amount field in modal
+   ======================================== -->
+<div class="form-group recurring-donation">
+    <label class="recurring-label">
+        <input type="checkbox" id="recurringDonation">
+        <span class="recurring-text">
+            <i class="fas fa-sync-alt"></i> Make this a monthly recurring donation
+        </span>
+    </label>
+    <p class="recurring-info" id="recurringInfo" style="display: none;">
+        You will contribute ₹<span id="recurringAmount">0</span> every month. Cancel anytime.
+    </p>
+</div>
+
+
+<!-- ========================================
+   FEATURE 7: DONATION RECEIPT MODAL
+   Insert before </body> closing tag
+   ======================================== -->
+<div class="modal" id="receiptModal">
+    <div class="modal-overlay" onclick="closeReceiptModal()"></div>
+    <div class="modal-content receipt-modal-content">
+        <button class="modal-close" onclick="closeReceiptModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="receipt-header">
+            <i class="fas fa-file-invoice"></i>
+            <h3>Donation Receipt</h3>
+            <p>Thank you for your generous contribution!</p>
+        </div>
+        <div class="receipt-body">
+            <div class="receipt-row">
+                <span class="receipt-label">Transaction ID:</span>
+                <span class="receipt-value" id="receiptTxnId">-</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Donor Name:</span>
+                <span class="receipt-value" id="receiptName">-</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Email:</span>
+                <span class="receipt-value" id="receiptEmail">-</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Amount:</span>
+                <span class="receipt-value receipt-amount" id="receiptAmount">₹0</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Cause:</span>
+                <span class="receipt-value" id="receiptCause">-</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Payment Method:</span>
+                <span class="receipt-value" id="receiptPayment">-</span>
+            </div>
+            <div class="receipt-row">
+                <span class="receipt-label">Date & Time:</span>
+                <span class="receipt-value" id="receiptDateTime">-</span>
+            </div>
+            <div class="receipt-row recurring-status" id="receiptRecurring" style="display: none;">
+                <span class="receipt-label">Recurring:</span>
+                <span class="receipt-value"><i class="fas fa-sync-alt"></i> Monthly</span>
+            </div>
+        </div>
+        <div class="receipt-footer">
+            <p class="tax-note"><i class="fas fa-shield-alt"></i> This donation is eligible for 80G tax deduction</p>
+            <button class="btn btn-primary btn-download" onclick="downloadReceipt()">
+                <i class="fas fa-download"></i> Download Receipt
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================
+   ADD THIS CDN BEFORE CLOSING </head> TAG
+   For Chart.js (Feature 9)
+   ======================================== -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
