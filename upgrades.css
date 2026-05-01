@@ -1,0 +1,554 @@
+/* =====================================================
+   NGO WEBSITE CSS UPGRADES - FINAL YEAR PROJECT
+   Add these styles to your existing style.css
+   ===================================================== */
+
+/* ========== FEATURE 3: DARK MODE ========== */
+.dark-mode-toggle {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(180deg);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #1a1a2e;
+    color: #eaeaea;
+}
+
+body.dark-mode .section,
+body.dark-mode .section-alt {
+    background: #16213e;
+}
+
+body.dark-mode .section-alt {
+    background: #0f1419;
+}
+
+body.dark-mode .cause-card,
+body.dark-mode .stat-card,
+body.dark-mode .story-card,
+body.dark-mode .impact-item,
+body.dark-mode .volunteer-form,
+body.dark-mode .contact-form,
+body.dark-mode .recent-donations,
+body.dark-mode .modal-content {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+body.dark-mode .section-header h2,
+body.dark-mode .cause-content h3,
+body.dark-mode .story-content h4,
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: #f3f4f6;
+}
+
+body.dark-mode .section-description,
+body.dark-mode .cause-content p,
+body.dark-mode .story-content p,
+body.dark-mode p {
+    color: #d1d5db;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f3f4f6;
+}
+
+body.dark-mode .donation-item {
+    background: #1f2937;
+}
+
+/* ========== FEATURE 2: LIVE DONATION TICKER ========== */
+.donation-ticker {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent-yellow), var(--dark-yellow));
+    color: var(--text-dark);
+    padding: 12px 0;
+    z-index: 999;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticker-content {
+    display: flex;
+    animation: scroll-ticker 30s linear infinite;
+    white-space: nowrap;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 40px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.ticker-item i {
+    font-size: 16px;
+}
+
+@keyframes scroll-ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Adjust hero section to accommodate ticker */
+.hero-section {
+    margin-top: 50px;
+}
+
+/* ========== FEATURE 1: DONOR LEADERBOARD ========== */
+.donor-leaderboard {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.08);
+    border: 2px solid rgba(30, 64, 175, 0.05);
+    margin-top: 60px;
+}
+
+.leaderboard-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.leaderboard-title i {
+    color: var(--accent-yellow);
+    font-size: 32px;
+}
+
+.leaderboard-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
+.leaderboard-list {
+    display: grid;
+    gap: 15px;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 25px;
+    background: var(--white);
+    border-radius: 15px;
+    border-left: 5px solid var(--accent-yellow);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.06);
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.12);
+}
+
+.leaderboard-item.rank-1 {
+    border-left-color: #ffd700;
+    background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+}
+
+.leaderboard-item.rank-2 {
+    border-left-color: #c0c0c0;
+}
+
+.leaderboard-item.rank-3 {
+    border-left-color: #cd7f32;
+}
+
+.leaderboard-rank {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.leaderboard-item.rank-1 .leaderboard-rank {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #333;
+}
+
+.leaderboard-donor-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.leaderboard-donor-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.leaderboard-donor-count {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.leaderboard-amount {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+/* ========== FEATURE 9: IMPACT GROWTH CHART ========== */
+.impact-chart-section {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.08);
+    border: 2px solid rgba(30, 64, 175, 0.05);
+    margin-top: 60px;
+}
+
+.chart-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.chart-title i {
+    color: var(--primary-blue);
+}
+
+.chart-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
+#impactChart {
+    max-height: 400px;
+}
+
+/* ========== FEATURE 6: VOLUNTEER ENHANCEMENTS ========== */
+.volunteer-form select[multiple] {
+    padding: 8px;
+    min-height: 100px;
+}
+
+.volunteer-form small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.skill-suggestion {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(251, 191, 36, 0.1));
+    border-left: 4px solid var(--accent-yellow);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: slideIn 0.5s ease;
+}
+
+.skill-suggestion i {
+    font-size: 32px;
+    color: var(--accent-yellow);
+}
+
+.skill-suggestion p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.volunteer-counter {
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    color: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
+}
+
+.volunteer-counter i {
+    font-size: 28px;
+}
+
+.volunteer-counter span {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* ========== FEATURE 8: RECURRING DONATION ========== */
+.recurring-donation {
+    background: rgba(30, 64, 175, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px dashed var(--primary-blue);
+}
+
+.recurring-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.recurring-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.recurring-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dark);
+}
+
+.recurring-text i {
+    color: var(--primary-blue);
+}
+
+.recurring-info {
+    margin-top: 12px;
+    padding: 12px;
+    background: rgba(251, 191, 36, 0.1);
+    border-radius: 8px;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+}
+
+.recurring-info span {
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+/* ========== FEATURE 7: DONATION RECEIPT MODAL ========== */
+.receipt-modal-content {
+    max-width: 600px;
+}
+
+.receipt-header {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 2px dashed #e5e7eb;
+    margin-bottom: 25px;
+}
+
+.receipt-header i {
+    font-size: 60px;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.receipt-header h3 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.receipt-header p {
+    color: var(--text-light);
+    font-size: 15px;
+}
+
+.receipt-body {
+    padding: 20px 0;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.receipt-row:last-child {
+    border-bottom: none;
+}
+
+.receipt-label {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.receipt-value {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 15px;
+    text-align: right;
+}
+
+.receipt-amount {
+    font-size: 28px;
+    color: var(--primary-blue);
+}
+
+.recurring-status {
+    background: rgba(251, 191, 36, 0.1);
+    padding: 15px !important;
+    border-radius: 8px;
+    border: none !important;
+}
+
+.recurring-status .receipt-value i {
+    color: var(--primary-blue);
+    margin-right: 5px;
+}
+
+.receipt-footer {
+    padding-top: 25px;
+    border-top: 2px dashed #e5e7eb;
+    text-align: center;
+}
+
+.tax-note {
+    background: rgba(30, 64, 175, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.tax-note i {
+    color: var(--primary-blue);
+}
+
+.btn-download {
+    width: 100%;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ========== FEATURE 10: SCROLL REVEAL ========== */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        margin-left: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .donation-ticker {
+        top: 70px;
+        padding: 10px 0;
+    }
+    
+    .ticker-item {
+        font-size: 12px;
+        padding: 0 20px;
+    }
+    
+    .donor-leaderboard,
+    .impact-chart-section {
+        padding: 30px 20px;
+    }
+    
+    .leaderboard-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .leaderboard-donor-info {
+        margin-left: 0;
+    }
+    
+    .volunteer-counter {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 16px;
+    }
+    
+    .receipt-modal-content {
+        padding: 30px 20px;
+    }
+}
